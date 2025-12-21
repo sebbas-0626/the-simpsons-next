@@ -1,0 +1,10 @@
+{
+  "console-ninja.featureSet": "Community",
+  "console-ninja.enabled": false,
+  "console-ninja.toolsToEnableSupportAutomaticallyFor": {},
+  "console-ninja.showWhatsNew": false,
+  "console-ninja.captureFunctions": false,
+  "console-ninja.captureValues": false,
+  "console-ninja.showInlineValues": false,
+  "console-ninja.showValueOnSelection": false
+}
