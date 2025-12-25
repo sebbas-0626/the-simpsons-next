@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { rockSalt } from "./layout";
 
 export default function HomePage() {
   return (
@@ -11,17 +12,17 @@ export default function HomePage() {
     >
       {/* Título */}
       <h2
-        className="
+        className={`${rockSalt.className}
           text-4xl md:text-6xl font-extrabold
           text-white mb-4
           drop-shadow-[0_4px_12px_rgba(250,204,21,0.6)]
-        "
+        `}
       >
         The Simpsons Explorer
       </h2>
 
       {/* Descripción */}
-      <p className="max-w-2xl text-lg md:text-xl text-gray-600 mb-10">
+      <p className={`${rockSalt.className} max-w-2xl text-lg md:text-xl text-gray-600 mb-10`}>
         Explora personajes, episodios y locaciones del universo Simpsons
         de una forma visual y divertida.
       </p>
