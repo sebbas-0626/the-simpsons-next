@@ -5,7 +5,10 @@ export const normalizeCharacters = (
   response: CharactersApiResponse
 ): Character[] => {
   if (Array.isArray(response)) return response;
-  if ('results' in response) return response.results;
-  if ('data' in response) return response.data;
-  return [response];
+  if ('results' in response && Array.isArray(response.results))
+    return response.results;
+  if ('data' in response && Array.isArray(response.data))
+    return response.data;
+  // Fallback: wrap the single character in an array
+  return [response as unknown as Character];
 };
