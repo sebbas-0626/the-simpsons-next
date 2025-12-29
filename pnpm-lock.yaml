@@ -20,6 +20,9 @@ importers:
       react-dom:
         specifier: 19.2.1
         version: 19.2.1(react@19.2.1)
+      styled-jsx:
+        specifier: ^5.0.0
+        version: 5.1.6(@babel/core@7.28.5)(react@19.2.1)
     devDependencies:
       '@tailwindcss/postcss':
         specifier: ^4
