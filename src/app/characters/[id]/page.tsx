@@ -10,12 +10,15 @@ interface Props {
 }
 
 export default async function CharacterDetailPage({ params }: Props) {
-  const { id } = await params; // ✅ AQUÍ ESTÁ LA CLAVE
+  const { id } = await params;
+  console.log("personaje id", { id });
 
   let character;
-
+  // Obtener datos del personaje por ID
+  
   try {
     character = await getCharacterById(id);
+    console.log("personaje data", {character});
   } catch {
     notFound();
   }
@@ -80,6 +83,29 @@ export default async function CharacterDetailPage({ params }: Props) {
               </li>
             ))}
           </ul>
+        </div>
+        {/* historias */}
+        <div className="md:col-span-2 sm:col-span-1">
+          <h2 className="text-xl sm:text-2xl font-semibold mb-4 text-yellow-400">Historias en Episodios</h2>
+          {/* informacion basica */}
+          <p>{character.first_appearance_ep?.name} {character.first_appearance_ep?.airdate}</p>
+          <Image
+            src={getSimpsonsImage(character.first_appearance_ep?.image_path || "/images/coming-soon.png", 500)}
+            alt="Coming Soon"
+            width={400}
+            height={200}
+            className="object-contain w-full h-auto"
+            priority
+            unoptimized
+          />
+          {/* synopsis */}
+          <p className="mt-2">{character.first_appearance_ep?.synopsis}</p>
+        </div>
+        {/* descripcion */}
+        <div className="md:col-span-2 sm:col-span-1">
+          <h2 className="text-xl sm:text-2xl font-semibold mb-4 text-yellow-400">Descripción</h2>
+          {/* descripción */}
+          <p>{character.description}</p>
         </div>
       </div>
     </div>
