@@ -42,3 +42,4 @@ next-env.d.ts
 
 # readme
 locations_api.md
+types_vs_interfaces.md
