@@ -2,18 +2,13 @@
 import { useEffect, useState, useMemo } from "react";
 import { Character } from "@/features/characters/types/Character";
 import { getCharacters } from "@/features/characters/services/CharacterService";
+import CharacterCard from "./CharacterCard";
 
-/**
- * Lista de personajes con filtro de búsqueda.
- * Utiliza los hooks `useState`, `useEffect` y `useMemo` para manejar el estado,
- * cargar datos y filtrar la lista de forma eficiente.
- */
 export const CharacterList = () => {
   const [characters, setCharacters] = useState<Character[]>([]);
-  const [filter, setFilter] = useState<string>("");
-  const [loading, setLoading] = useState<boolean>(true);
+  const [filter, setFilter] = useState("");
+  const [loading, setLoading] = useState(true);
 
-  // Cargar datos al montar el componente
   useEffect(() => {
     const load = async () => {
       try {
@@ -28,28 +23,40 @@ export const CharacterList = () => {
     load();
   }, []);
 
-  // Filtrar la lista de personajes (memorizado)
-  const filtered = useMemo(() => {
+  const filteredCharacters = useMemo(() => {
+    if (!filter.trim()) return characters;
+
+    const lower = filter.trim().toLowerCase();
     return characters.filter((c) =>
-      c.name.toLowerCase().includes(filter.toLowerCase())
+      c.name.toLowerCase().startsWith(lower)
     );
   }, [characters, filter]);
 
-  if (loading) return <p>Cargando personajes…</p>;
+  if (loading) return <p className="ml-8">Cargando personajes…</p>;
 
   return (
-    <div>
+    <div className="px-8">
+      {/* Input */}
       <input
         type="text"
-        placeholder="Buscar…"
+        placeholder="Buscar por nombre (ej: H, Ho, Hom)"
         value={filter}
         onChange={(e) => setFilter(e.target.value)}
+        className="border border-gray-600 bg-black text-white p-2 mb-6 w-full max-w-sm rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-400"
       />
-      <ul>
-        {filtered.map((c) => (
-          <li key={c.id}>{c.name}</li>
-        ))}
-      </ul>
+
+      {/* Resultados */}
+      {/* {filteredCharacters.length === 0 ? (
+        <p className="text-gray-400 italic">
+          No se encontraron personajes
+        </p>
+      ) : (
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+          {filteredCharacters.map((character) => (
+            <CharacterCard key={character.id} character={character} />
+          ))}
+        </div>
+      )} */}
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import CharacterCard from "@/features/characters/components/CharacterCard";
+import { CharacterList } from "@/features/characters/components/CharacterList";
 import { getCharacters } from "@/features/characters/services/CharacterService";
 import { rockSalt } from "../layout";
 
@@ -26,8 +27,9 @@ export default async function CharactersPage({ searchParams }: PageProps) {
       >
         Personajes
       </h1>
-
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      {/* Renderizamos el componente con filtro */}
+      <CharacterList />
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 mr-18">
         {data.results.map((character) => (
           <CharacterCard key={character.id} character={character} />
         ))}
