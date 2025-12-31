@@ -29,7 +29,7 @@ export default async function CharactersPage({ searchParams }: PageProps) {
       </h1>
       {/* Renderizamos el componente con filtro */}
       <CharacterList />
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 mr-18">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 px-8 md:px-0">
         {data.results.map((character) => (
           <CharacterCard key={character.id} character={character} />
         ))}

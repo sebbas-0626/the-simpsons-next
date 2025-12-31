@@ -24,7 +24,7 @@ export default function RootLayout({
     <html lang="es">
           <body className={`${comic.className}`}>
         <Header />
-        <main className="container">
+        <main className="w-full">
           {children}
         </main>
       </body>

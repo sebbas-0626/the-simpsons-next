@@ -16,13 +16,13 @@ export default function CharacterCard({ character, featured }: Props) {
   return (
     <div
       className={`
-    group relative w-72 ml-8 rounded-2xl border-2 p-6 text-center
-    bg-white
-    transition-all duration-500 ease-out
-    hover:scale-105 hover:border-yellow-400 hover:bg-yellow-50
-    hover:drop-shadow-[0_12px_25px_rgba(250,204,21,0.45)]
-    ${featured ? "border-yellow-400 bg-red-50" : "border-gray-200"}
-  `}
+        group relative rounded-2xl border-2 p-6 text-center
+        bg-white
+        transition-all duration-500 ease-out
+        hover:scale-105 hover:border-yellow-400 hover:bg-yellow-50
+        hover:drop-shadow-[0_12px_25px_rgba(250,204,21,0.45)]
+        ${featured ? "border-yellow-400 bg-red-50" : "border-gray-200"}
+      `}
     >
       {/* id */}
       <div className="">
@@ -31,35 +31,34 @@ export default function CharacterCard({ character, featured }: Props) {
         </span>
       </div>
       {/* Imagen */}
-<Link href={`/characters/${character.id}`}>
-  <div
-    className="
-      mx-auto mb-4 mt-3
-      flex items-center justify-center
-      h-28 w-28 sm:h-32 sm:w-32
-      rounded-xl bg-white
+      <Link href={`/characters/${character.id}`}>
+        <div
+          className="
+            mx-auto mb-4 mt-3
+            flex items-center justify-center
+            h-28 w-28 sm:h-32 sm:w-32
+            rounded-xl bg-white
 
-      transition-all duration-500 ease-out
-      transform
+            transition-all duration-500 ease-out
+            transform
 
-      group-hover:bg-yellow-100
-      group-hover:rotate-6
-      group-hover:scale-105
-      group-hover:shadow-lg
-      group-hover:shadow-yellow-400/50
-    "
-  >
-    <Image
-      src={imageUrl}
-      alt={character.name}
-      width={120}
-      height={120}
-      className="object-contain transition-transform duration-500 group-hover:scale-110"
-      loading="lazy"
-    />
-  </div>
-</Link>
-
+            group-hover:bg-yellow-100
+            group-hover:rotate-6
+            group-hover:scale-105
+            group-hover:shadow-lg
+            group-hover:shadow-yellow-400/50
+          "
+        >
+          <Image
+            src={imageUrl}
+            alt={character.name}
+            width={120}
+            height={120}
+            className="object-contain transition-transform duration-500 group-hover:scale-110"
+            loading="lazy"
+          />
+        </div>
+      </Link>
 
       <h3 className="text-lg font-semibold text-gray-900">{character.name}</h3>
 
