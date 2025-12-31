@@ -14,7 +14,7 @@ export default function EpisodeList({ episode }: Props) {
   const imageUrl = getSimpsonsImage(episode.image_path || '', 500)
 
   return (
-    <main className="max-w-4xl mx-auto p-6">
+    <div className="max-w-4xl mx-auto p-6">
       {/* Título */}
       <h1 className="text-3xl font-bold mb-2">
         {episode.name}
@@ -39,6 +39,6 @@ export default function EpisodeList({ episode }: Props) {
       <p className="text-base leading-relaxed">
         {episode.synopsis}
       </p>
-    </main>
+    </div>
   )
 }

@@ -2,6 +2,7 @@ import CharacterCard from "@/features/characters/components/CharacterCard";
 import { CharacterList } from "@/features/characters/components/CharacterList";
 import { getCharacters } from "@/features/characters/services/CharacterService";
 import { rockSalt } from "../layout";
+import Pagination from "@/components/Pagination";
 
 type PageProps = {
   searchParams: Promise<{
@@ -36,25 +37,7 @@ export default async function CharactersPage({ searchParams }: PageProps) {
       </div>
 
       {/* PAGINACIÓN */}
-      <div className="flex justify-center gap-4 mt-10">
-        {page > 1 && (
-          <a
-            href={`?page=${page - 1}`}
-            className="px-4 py-2 bg-gray-700 rounded"
-          >
-            Anterior
-          </a>
-        )}
-
-        {page < data.pages && (
-          <a
-            href={`?page=${page + 1}`}
-            className="px-4 py-2 bg-yellow-500 text-black rounded"
-          >
-            Siguiente
-          </a>
-        )}
-      </div>
+      <Pagination page={page} pages={data.pages} />
     </div>
   );
 }
