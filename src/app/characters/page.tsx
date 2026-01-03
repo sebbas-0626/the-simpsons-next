@@ -1,8 +1,6 @@
-import CharacterCard from "@/features/characters/components/CharacterCard";
 import { CharacterList } from "@/features/characters/components/CharacterList";
 import { getCharacters } from "@/features/characters/services/CharacterService";
 import { rockSalt } from "../layout";
-import Pagination from "@/components/Pagination";
 
 type PageProps = {
   searchParams: Promise<{
