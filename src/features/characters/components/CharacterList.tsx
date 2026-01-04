@@ -63,9 +63,10 @@ export const CharacterList = () => {
       {/* Results count */}
       <p className="text-gray-400 mb-4">
         Mostrando {filteredCharacters.length} personajes
-        {filter && ` que empiezan con "${filter}"`}
+    {filter && (
+      <span>{' '}que empiezan con &ldquo;{filter}&rdquo;</span>
+    )}
       </p>
-      
       {/* Character grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 px-0 md:px-0">
         {filteredCharacters.map((character) => (
@@ -76,8 +77,7 @@ export const CharacterList = () => {
       {/* No results message */}
       {filteredCharacters.length === 0 && filter && (
         <div className="text-center text-gray-400 mt-8">
-          <p>No se encontraron personajes que empiecen con "{filter}"</p>
-          <p className="text-sm mt-2">Intenta con otro término de búsqueda</p>
+          <p>No se encontraron personajes que empiecen con &ldquo;{filter}&rdquo;</p>
         </div>
       )}
       
