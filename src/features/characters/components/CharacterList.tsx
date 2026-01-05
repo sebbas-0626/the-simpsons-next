@@ -2,7 +2,7 @@
 import { useEffect, useState, useMemo } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { Character } from "@/features/characters/types/Character";
-import { getCharacters } from "@/features/characters/services/CharacterService";
+import { getCharacters, getAllCharacters  } from "@/features/characters/services/CharacterService";
 import CharacterCard from "./CharacterCard";
 import Pagination from "@/components/Pagination";
 
@@ -15,6 +15,9 @@ export const CharacterList = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
   const currentPage = Number(searchParams.get('page')) || 1;
+
+  const [allCharacters, setAllCharacters] = useState<Character[]>([]);
+const [isSearching, setIsSearching] = useState(false);
 
   useEffect(() => {
     const load = async () => {

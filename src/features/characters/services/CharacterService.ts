@@ -20,3 +20,18 @@ export const getCharacterById = async (
   const results = normalizeCharacters(data);
   return results[0];
 };
+
+// funcion para obtener todos los personajes sin paginacion
+export const getAllCharacters = async (): Promise<Character[]> => {
+  let allCharacters: Character[] = [];
+  let page = 1;
+  let totalPages = 1;
+  do {
+    const { data } = await api.get<CharactersApiResponse>(`/characters?page=${page}`);
+    const results = normalizeCharacters(data);
+    allCharacters = allCharacters.concat(results);
+    totalPages = (data as { pages?: number }).pages ?? 1;
+    page++;
+  } while (page <= totalPages);
+  return allCharacters;
+}
