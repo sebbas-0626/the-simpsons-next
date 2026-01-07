@@ -44,3 +44,4 @@ next-env.d.ts
 locations_api.md
 types_vs_interfaces.md
 hooks_and_state.md
+global_filter_service.md
