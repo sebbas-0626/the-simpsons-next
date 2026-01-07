@@ -21,10 +21,10 @@ export const CharacterList = () => {
   const currentPage = Number(searchParams.get("page")) || 1;
 
   /**
-   * 📄 CARGA NORMAL (PAGINADA)
+   *CARGA NORMAL (PAGINADA)
    */
   useEffect(() => {
-    if (isSearching) return; // ⛔ no cargar páginas si estamos buscando
+    if (isSearching) return; //no cargar páginas si estamos buscando
 
     const load = async () => {
       setLoading(true);
@@ -43,7 +43,7 @@ export const CharacterList = () => {
   }, [currentPage, isSearching]);
 
   /**
-   * 🔍 ACTIVAR BÚSQUEDA GLOBAL
+   *ACTIVAR BÚSQUEDA GLOBAL
    */
   useEffect(() => {
     if (!filter.trim()) {
@@ -60,7 +60,7 @@ export const CharacterList = () => {
   }, [filter, allCharacters.length]);
 
   /**
-   * 🧠 FILTRADO INTELIGENTE
+   *FILTRADO INTELIGENTE
    */
   const filteredCharacters = useMemo(() => {
     const source = isSearching ? allCharacters : characters;

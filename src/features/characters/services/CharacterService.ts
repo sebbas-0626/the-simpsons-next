@@ -3,7 +3,7 @@ import { Character } from "../types/Character";
 import { CharactersApiResponse } from "../types/CharacterApiResponse";
 import { normalizeCharacters } from "./character.mapper";
 
-// funcion para obtener la lista de personajes con paginacion
+// servicio para obtener la lista de personajes con paginacion
 export const getCharacters = async (
   page: number = 1
 ): Promise<{ results: Character[]; pages: number }> => {
@@ -13,6 +13,7 @@ export const getCharacters = async (
   return { results, pages };
 };
 
+// servicio para obtener un personaje por su ID
 export const getCharacterById = async (
   id: string | number
 ): Promise<Character> => {
@@ -21,7 +22,7 @@ export const getCharacterById = async (
   return results[0];
 };
 
-// funcion para obtener todos los personajes sin paginacion
+// servicio para obtener todos los personajes sin paginacion
 export const getAllCharacters = async (): Promise<Character[]> => {
   let allCharacters: Character[] = [];
   let page = 1;
