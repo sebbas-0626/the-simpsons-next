@@ -67,7 +67,13 @@
                 </Link>
               </li>
             ))}
-             {/* GitHub logo */}
+            {/* Dark mode toggle */}
+            <li>
+              <button className="px-3 py-2 rounded-md font-medium hover:bg-gray-100 drop-shadow-[0_4px_12px_rgba(250,204,21,0.6)] text-gray-900">
+                Dark Mode
+              </button>
+            </li>
+            {/* GitHub logo */}
           <a
             href="https://github.com/sebbas-0626/the-simpsons-next"
             target="_blank"
